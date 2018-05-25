@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 5,
+      "subtext" : {
+        "size" : 12,
+        "colorSelected" : "#FFFFFFC4",
+        "font" : "Fira Code",
+        "color" : "#00000065"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "Helvetica",
+        "color" : "#C5615CFF"
+      },
+      "backgroundSelected" : "#D16B658B",
+      "text" : {
+        "size" : 18,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "Fira Code",
+        "color" : "#000000E5"
+      },
+      "iconPaddingHorizontal" : 4,
+      "paddingVertical" : 3,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 4,
+      "background" : "#3892935C",
+      "spacing" : 8,
+      "text" : {
+        "size" : 34,
+        "colorSelected" : "#000000FF",
+        "font" : "Fira Code",
+        "color" : "#000000FF"
+      },
+      "backgroundSelected" : "#B2D7FFFF"
+    },
+    "window" : {
+      "color" : "#FFFFFF00",
+      "paddingHorizontal" : 9,
+      "width" : 559,
+      "borderPadding" : 0,
+      "borderColor" : "#0000007F",
+      "blur" : 29,
+      "roundness" : 3,
+      "paddingVertical" : 8
+    },
+    "credit" : "hjl",
+    "separator" : {
+      "color" : "#CBCBCBF3",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#D16B65C1",
+      "thickness" : 2
+    },
+    "name" : "zen"
+  }
+}
