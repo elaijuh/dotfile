@@ -24,6 +24,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neomru.vim')
   call dein#add('itchyny/lightline.vim')
   call dein#add('w0rp/ale')
+  call dein#add('tpope/vim-commentary', {'script_type': 'plugin'})
 
 
   " Required:
