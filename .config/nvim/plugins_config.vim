@@ -130,7 +130,7 @@ call denite#custom#map(
 call denite#custom#map(
 	\ 'insert',
 	\ '<C-t>',
-	\ '<denite:do_action:tab>',
+	\ '<denite:do_action:tabopen>',
 	\ 'noremap'
 	\)
 " Change matchers.
@@ -157,8 +157,15 @@ call denite#custom#option('_', 'highlight_matched_char', 'None')
 " => lightline
 """"""""""""""""""""""""""""""""
 let g:lightline = {
-    \ 'colorscheme': 'PaperColor_light',
+    \ 'colorscheme': 'landscape'
     \}
+
+""""""""""""""""""""""""""""""""
+" => vim-vue
+""""""""""""""""""""""""""""""""
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
+
 
 """"""""""""""""""""""""""""""""
 " => ale
@@ -167,10 +174,13 @@ let g:ale_completion_enabled = 1
 let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ 'javascript': ['prettier'],
+    \ 'vue': ['prettier'],
     \ 'css': ['prettier']
     \ }
+" let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {
-    \ 'javascript': ['eslint']
+    \ 'javascript': ['eslint'],
+    \ 'vue': ['eslint']
     \ }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1

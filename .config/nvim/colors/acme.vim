@@ -21,6 +21,8 @@ hi! Error term=NONE cterm=NONE ctermfg=9 ctermbg=white gui=NONE guifg=white guib
 hi! NvimInternalError term=NONE cterm=NONE ctermfg=9 ctermbg=white gui=NONE guifg=white guibg=#e57373
 hi! Pmenu term=NONE cterm=NONE ctermfg=fg ctermbg=4 gui=NONE guifg=white guibg=#80cbc4
 hi! MatchParen ctermbg=4 guibg=#80cbc4
+hi! CursorLine ctermbg=4 guibg=#bbdefb
+hi! Todo ctermfg=0 ctermbg=11 guifg=#000000 guibg=#ffee58
 
 highlight! Statement guibg=bg guifg=fg gui=italic ctermbg=bg ctermfg=fg cterm=italic
 highlight! Identifier guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
