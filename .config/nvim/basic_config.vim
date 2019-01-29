@@ -1,5 +1,6 @@
 let mapleader = ","
 
+set encoding=utf8
 set termguicolors
 set background=light
 colorscheme acme
@@ -8,8 +9,9 @@ set autoread
 set expandtab
 set smarttab
 set ruler
-" set shiftwidth=4
-" set tabstop=4
+set nu
+set shiftwidth=4
+set tabstop=4
 set lbr
 set tw=500
 set ai
@@ -37,8 +39,7 @@ nnoremap <silent><Leader>4 :exe "vertical resize -10"<CR>
 """ tab
 noremap ¡ :tabprevious<CR>
 noremap ™ :tabnext<CR>
-noremap <C-h><C-h> :tabprevious<CR>
-noremap <C-l><C-l> :tabnext<CR>
+
 
 """ indent
 au FileType html setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
