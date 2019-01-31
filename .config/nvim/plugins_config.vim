@@ -133,6 +133,12 @@ call denite#custom#map(
 	\ '<denite:do_action:tabopen>',
 	\ 'noremap'
 	\)
+call denite#custom#map(
+	\ 'insert',
+	\ '<C-x>',
+	\ '<denite:do_action:delete>',
+	\ 'noremap'
+	\)
 " Change matchers.
 call denite#custom#source(
 	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])

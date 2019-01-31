@@ -27,6 +27,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
   call dein#add('tomtom/tcomment_vim')
+  call dein#add('fatih/vim-go')
 
 
   " Required:
