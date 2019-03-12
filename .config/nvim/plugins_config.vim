@@ -34,6 +34,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('drop', 'split')
   nnoremap <silent><buffer><expr> s
   \ defx#do_action('drop', 'vsplit')
+  nnoremap <silent><buffer><expr> t
+  \ defx#do_action('drop', 'tabnew')
   nnoremap <silent><buffer><expr> P
   \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> K
