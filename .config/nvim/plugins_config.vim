@@ -17,17 +17,23 @@ autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
+  \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> c
   \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
   \ defx#do_action('move')
   nnoremap <silent><buffer><expr> p
   \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> o
+  \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> l
-  \ defx#do_action('open')
+  \ defx#do_action('open_directory')
   nnoremap <silent><buffer><expr> E
   \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> i
+  \ defx#do_action('drop', 'split')
+  nnoremap <silent><buffer><expr> s
+  \ defx#do_action('drop', 'vsplit')
   nnoremap <silent><buffer><expr> P
   \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> K
@@ -87,9 +93,23 @@ map <leader>b :Denite buffer<cr>
 map <leader>g :Denite grep<cr>
 map <c-r> :Denite command_history<cr>
 
-" Change file/rec command.
-call denite#custom#var('file/rec', 'command',
-\ ['ag', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
+if executable('rg')
+  call denite#custom#var('file/rec', 'command',
+        \ ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'final_opts', [])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'default_opts',
+        \ ['-i', '--vimgrep', '--no-heading'])
+else
+  call denite#custom#var('file/rec', 'command',
+        \ ['ag', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
+endif
+
+call denite#custom#var('file/rec/git', 'command',
+      \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
 " Change mappings.
 call denite#custom#map(
 	\ 'insert',
@@ -144,14 +164,6 @@ call denite#custom#source(
 	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
 call denite#custom#source(
 	\ 'file/rec', 'matchers', ['matcher/cpsm'])
-" Ag command on grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-	\ ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
 " Change default prompt
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#option('_', 'highlight_mode_insert', 'CursorLine')
