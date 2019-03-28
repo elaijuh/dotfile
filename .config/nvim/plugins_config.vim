@@ -97,7 +97,7 @@ map <c-r> :Denite command_history<cr>
 
 if executable('rg')
   call denite#custom#var('file/rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
+        \ ['rg', '--files', '--hidden',  '--glob',  '!.git'])
   call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
   call denite#custom#var('grep', 'recursive_opts', [])
   call denite#custom#var('grep', 'final_opts', [])
@@ -193,7 +193,7 @@ let g:vue_disable_pre_processors=1
 let g:ale_completion_enabled = 1
 let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'javascript': ['prettier'],
+    \ 'javascript': ['eslint'],
     \ 'vue': ['prettier'],
     \ 'css': ['prettier']
     \ }
