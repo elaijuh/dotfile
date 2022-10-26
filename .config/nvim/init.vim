@@ -1,50 +1,37 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+set nocompatible            " disable compatibility to old-time vi
+set showmatch               " show matching 
+set ignorecase              " case insensitive 
+set mouse=v                 " middle-click paste with 
+set hlsearch                " highlight search 
+set incsearch               " incremental search
+set tabstop=4               " number of columns occupied by a tab 
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=4            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
+set number                  " add line numbers
+set wildmode=longest,list   " get bash-like tab completions
+set cc=80                  " set an 80 column border for good coding style
+filetype plugin indent on   "allow auto-indenting depending on file type
+syntax on                   " syntax highlighting
+set mouse=a                 " enable mouse click
+set clipboard=unnamedplus   " using system clipboard
+filetype plugin on
+set cursorline              " highlight current cursorline
+set ttyfast                 " Speed up scrolling in Vim
+" set spell                 " enable spell check (may need to download language package)
+" set noswapfile            " disable creating swap file
+" set backupdir=~/.cache/vim " Directory to store backup files.
+"
+if (has('termguicolors'))
+    set termguicolors
 endif
-
-" Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/defx.nvim')
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('nixprime/cpsm')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('w0rp/ale')
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('posva/vim-vue')
-  call dein#add('tomtom/tcomment_vim')
-  call dein#add('fatih/vim-go')
-
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
 syntax enable
+set background=light
+let g:everforest_background = 'soft'
+let g:everforest_better_performance = 1
+colorscheme everforest
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
 
-"End dein Scripts-------------------------
 
-source ~/.config/nvim/basic_config.vim
-source ~/.config/nvim/plugins_config.vim
+runtime vim.lua
