@@ -9,13 +9,12 @@ set cursorline
 set autoindent
 syntax on
 
-if has('termguicolors')
-	set termguicolors
-end
-set background=light
-let g:everforest_background = 'hard'
-let g:everforest_better_performance = 1
-colorscheme everforest
+" if has('termguicolors')
+" 	set termguicolors
+" end
+
+let g:seoul256_background = 255
+colorscheme seoul256
 
 let mapleader=","
 

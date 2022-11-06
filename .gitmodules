@@ -1,6 +1,3 @@
-[submodule "nvim/pack/colors/start/everforest"]
-	path = nvim/pack/colors/start/everforest
-	url = https://github.com/sainnhe/everforest.git
 [submodule "nvim/pack/plugins/start/nvim-tree"]
 	path = nvim/pack/plugins/start/nvim-tree
 	url = https://github.com/nvim-tree/nvim-tree.lua.git
@@ -40,3 +37,6 @@
 [submodule "nvim/pack/plugins/start/vim-commentary"]
 	path = nvim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "nvim/pack/colors/start/seoul256"]
+	path = nvim/pack/colors/start/seoul256
+	url = https://github.com/junegunn/seoul256.vim.git
