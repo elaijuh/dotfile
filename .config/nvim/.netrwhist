@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/hjl/code/obi/obi9s/be'
-let g:netrw_dirhist_2='/Users/hjl/code/obi/obi9s/be/src'
-let g:netrw_dirhist_3='/Users/hjl/code/obi/obi9s'
-let g:netrw_dirhist_4='/Users/hjl/code/obi/obi9s/be'
-let g:netrw_dirhist_5='/Users/hjl/code/obi/obi9s/be/src'

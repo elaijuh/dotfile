@@ -1,0 +1,57 @@
+# tl;dr
+
+neovim config version controled in git
+
+# init
+
+```sh
+git submodule init
+```
+
+# add a plugin
+
+```sh
+git submodule add --depth=1 https://github.com/manasthakur/foo.git pack/plugins/start/foo
+git commit -m "add submodules foo"
+
+# remove a plugin
+
+```sh
+git submodule deinit pack/plugins/start/foo
+git rm -r pack/plugins/start/foo
+rm -r .git/modules/pack/plugins/start/foo
+```
+
+# update a plugin
+
+```sh
+cd pack/plugins/start/foo
+git pull origin master
+```
+
+# update all plugins
+```sh
+git submodule update --depth=1 --rebase --remote
+
+```
+
+# pugins list
+
+
+|plugin|use|source|
+|------|---|------|
+|nvim-tree|A File Explorer For Neovim Written In Lua|https://github.com/nvim-tree/nvim-tree.lua.git|
+|nvim-cmp|completion engine for neovim written in Lua|https://github.com/hrsh7th/nvim-cmp|
+|cmp-nvim-lsp|nvim-cmp source for neovim's built-in language server client|https://github.com/hrsh7th/cmp-nvim-lsp|
+|nvim-lspconfig|Configs for the Nvim LSP client|https://github.com/neovim/nvim-lspconfig|
+|vim-vsnip|VSCode(LSP)'s snippet feature in vim/nvim.|https://github.com/hrsh7th/vim-vsnip|
+|cmp-vsnip|nvim-cmp source for vim-vsnip|https://github.com/hrsh7th/cmp-vsnip|
+|cmp-buffer|nvim-cmp source for buffer words|https://github.com/hrsh7th/cmp-buffer|
+|cmp-path|nvim-cmp source for path|https://github.com/hrsh7th/cmp-path|
+|nvim-treesitter|`TSInstallInfo`, `TSInstall`, `TSUpdate <language>`|https://github.com/nvim-treesitter/nvim-treesitter|
+|fzf|fzf|https://github.com/junegunn/fzf.git|
+|fzf.vim|fzf for vim|https://github.com/junegunn/fzf.vim.git|
+|vim-commentary|Comment stuff out|https://github.com/tpope/vim-commentary.git|
+
+
+
