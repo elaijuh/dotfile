@@ -31,7 +31,10 @@ git pull origin master
 
 # update all plugins
 ```sh
-git submodule update --depth=1 --rebase --remote
+# first pull
+git submodule update --depth=1 --init
+# update
+git submodule update --depth=1 --remote
 
 ```
 
@@ -52,6 +55,3 @@ git submodule update --depth=1 --rebase --remote
 |fzf|fzf|https://github.com/junegunn/fzf.git|
 |fzf.vim|fzf for vim|https://github.com/junegunn/fzf.vim.git|
 |vim-commentary|Comment stuff out|https://github.com/tpope/vim-commentary.git|
-
-
-
