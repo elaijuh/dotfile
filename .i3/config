@@ -420,3 +420,8 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# multiple monitors
+exec --no-startup-id xrandr --auto --output eDP --off
+workspace 1 output HDMI-A-0
+
