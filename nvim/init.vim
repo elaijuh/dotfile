@@ -7,6 +7,7 @@ set incsearch
 set colorcolumn=80
 set cursorline
 set autoindent
+set clipboard=uname
 syntax on
 
 " if has('termguicolors')
