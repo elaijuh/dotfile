@@ -9,9 +9,9 @@ set cursorline
 set autoindent
 syntax on
 
-" if has('termguicolors')
-" 	set termguicolors
-" end
+if has('termguicolors')
+	set termguicolors
+end
 
 let g:seoul256_background = 255
 colorscheme seoul256
