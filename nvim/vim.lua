@@ -145,9 +145,10 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp = require('lspconfig')
 local util = require('lspconfig/util')
+
 lsp['gopls'].setup({
   cmd = {"gopls"}, 
   filetype = {"go", "gomod", "gowork", "gotmpl"},
