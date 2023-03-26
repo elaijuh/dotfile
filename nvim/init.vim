@@ -18,6 +18,10 @@ colorscheme seoul256
 
 let mapleader=","
 
+" buffer navigation
+nnoremap <silent> [b :bprevious<cr>
+nnoremap <silent> ]b :bnext<cr>
+
 " window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
