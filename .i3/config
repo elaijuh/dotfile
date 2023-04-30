@@ -10,7 +10,7 @@ set $mod Mod1
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+# default_border pixel 1
 default_floating_border normal
 
 # Hide borders
@@ -192,6 +192,8 @@ assign [class="Google-chrome"] $ws2
 assign [class="codeblocks"] $ws3
 assign [class="slack"] $ws4
 
+for_window [title="urxvt"] title_format %title
+
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -220,6 +222,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="XTerm"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -329,22 +332,24 @@ set_from_resource $term_color15    color15
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
+# https://thomashunter.name/i3-configurator/
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
+  # client.focused          #FFFFEA #FFFFCA #000000 #FFFFCA   #FFFFCA
+  client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+  client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+  client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+  client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
-  client.background       #2B2C2B
+  client.background       #FFFFFF
 
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 9
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
