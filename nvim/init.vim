@@ -13,7 +13,7 @@ if has('termguicolors')
 	set termguicolors
 end
 
-let g:seoul256_background = 255
+let g:seoul256_background = 253
 colorscheme seoul256
 
 let mapleader=","
