@@ -13,7 +13,7 @@ git submodule init
 
 [,bash]
 ----
-git submodule add --depth=1 https://github.com/manasthakur/foo.git pack/plugins/start/foo
+git submodule add --depth=1 https://github.com/manasthakur/foo.git nvim/pack/plugins/start/foo
 git commit -m "add submodules foo"
 ----
 
@@ -21,16 +21,16 @@ git commit -m "add submodules foo"
 
 [,bash]
 ----
-git submodule deinit pack/plugins/start/foo
-git rm -r pack/plugins/start/foo
-rm -r .git/modules/pack/plugins/start/foo
+git submodule deinit nvim/pack/plugins/start/foo
+git rm -r nvim/pack/plugins/start/foo
+rm -r .git/nvim/modules/pack/plugins/start/foo
 ----
 
 *update a submodule*
 
 [,bash]
 ----
-cd pack/plugins/start/foo
+cd nvim/pack/plugins/start/foo
 git pull origin master
 ----
 
@@ -101,4 +101,8 @@ git submodule update --depth=1 --remote
 |vim-commentary
 |Comment stuff out
 |https://github.com/tpope/vim-commentary.git
+
+|venn
+|ascii diagram in vim
+|https://github.com/jbyuki/venn.nvim.git
 |===

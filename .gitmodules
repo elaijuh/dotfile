@@ -40,3 +40,6 @@
 [submodule "nvim/pack/colors/start/seoul256"]
 	path = nvim/pack/colors/start/seoul256
 	url = https://github.com/junegunn/seoul256.vim.git
+[submodule "nvim/pack/plugins/start/venn.nvim"]
+	path = nvim/pack/plugins/start/venn.nvim
+	url = https://github.com/jbyuki/venn.nvim
