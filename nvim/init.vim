@@ -9,9 +9,21 @@ set cursorline
 set autoindent
 syntax on
 
-if has('termguicolors')
-	set termguicolors
-end
+if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
+    set notermguicolors
+elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
+    set termguicolors
+elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
+    if $XTERM_VERSION != ''
+        set termguicolors
+    elseif $KONSOLE_PROFILE_NAME != ''
+        set termguicolors
+    elseif $VTE_VERSION != ''
+        set termguicolors
+    else
+        set notermguicolors
+    endif
+endif
 
 let g:seoul256_background = 253
 colorscheme seoul256
