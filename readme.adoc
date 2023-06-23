@@ -23,7 +23,7 @@ git commit -m "add submodules foo"
 ----
 git submodule deinit nvim/pack/plugins/start/foo
 git rm -r nvim/pack/plugins/start/foo
-rm -r .git/nvim/modules/pack/plugins/start/foo
+rm -rf .git/modules/nvim/pack/plugins/start/foo
 ----
 
 *update a submodule*

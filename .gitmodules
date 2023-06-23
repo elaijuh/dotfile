@@ -28,9 +28,6 @@
 [submodule "nvim/pack/plugins/start/cmp-path"]
 	path = nvim/pack/plugins/start/cmp-path
 	url = https://github.com/hrsh7th/cmp-path
-[submodule "nvim/pack/plugins/start/fzf"]
-	path = nvim/pack/plugins/start/fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "nvim/pack/plugins/start/fzf.vim"]
 	path = nvim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
