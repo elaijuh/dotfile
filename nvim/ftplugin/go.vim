@@ -19,7 +19,5 @@ function org_imports(wait_ms)
 end
 EOF
 
-" 代码补全结束后自动导包
 autocmd CompleteDone *.go :lua org_imports()
-" 保存代码之前自动格式化
-autocmd BufWritePre *.go :lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go :lua vim.lsp.buf.format()

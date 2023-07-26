@@ -173,6 +173,15 @@ lsp['gopls'].setup({
   }
 })
 
+lsp['clangd'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  single_file_support = true,
+})
+
 
 -- nvim-tree
 vim.g.loaded_netrw = 1
@@ -200,15 +209,28 @@ require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,
+    float = {
+      enable = true,
+      quit_on_focus_loss = true,
+      open_win_config = {
+        relative = "editor",
+        border = "rounded",
+        width = 30,
+        height = 60,
+        row = 1,
+        col = 1,
+      },
+    },
   },
   renderer = {
     group_empty = false,
     icons = {
       show = {
         folder = false,
-        folder_arrow = false,
+        folder_arrow = true,
         file = false,
         git = true,
+        modified = true
       },
     },
   },
