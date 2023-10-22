@@ -16,6 +16,8 @@ elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
 elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
     if $XTERM_VERSION != ''
         set termguicolors
+	elseif $COLORTERM != ''
+        set termguicolors
     elseif $KONSOLE_PROFILE_NAME != ''
         set termguicolors
     elseif $VTE_VERSION != ''
@@ -45,7 +47,6 @@ nnoremap <leader>e :NvimTreeToggle<cr>
 nnoremap <leader>f :NvimTreeFindFile<cr>
 
 " fzf
-let $BAT_THEME='gruvbox-light'
 nnoremap <c-p> :Files<cr>
 nnoremap <c-r> :Buffers<cr>
 
