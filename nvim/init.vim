@@ -1,5 +1,5 @@
 set nocompatible
-set number
+set number relativenumber
 set ignorecase
 set smartcase
 set hlsearch
@@ -45,6 +45,7 @@ nnoremap <leader>e :NvimTreeToggle<cr>
 nnoremap <leader>f :NvimTreeFindFile<cr>
 
 " fzf
+let $BAT_THEME='gruvbox-light'
 nnoremap <c-p> :Files<cr>
 nnoremap <c-r> :Buffers<cr>
 

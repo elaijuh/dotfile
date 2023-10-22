@@ -40,3 +40,6 @@
 [submodule "nvim/pack/plugins/start/venn.nvim"]
 	path = nvim/pack/plugins/start/venn.nvim
 	url = https://github.com/jbyuki/venn.nvim
+[submodule "nvim/pack/plugins/start/fzf"]
+	path = nvim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf.git
