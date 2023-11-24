@@ -1,3 +1,6 @@
+vim.keymap.set('n', '<c-p>', ':Files<cr>', {remap = false})
+vim.keymap.set('n', '<c-r>', ':Buffers<cr>', {remap = false})
+
 vim.cmd([[
   "FZF Buffer Delete
   function! s:list_buffers()

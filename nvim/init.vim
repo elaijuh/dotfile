@@ -1,14 +1,3 @@
-set nocompatible
-set number relativenumber
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-set colorcolumn=80
-set cursorline
-set autoindent
-syntax on
-
 if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
     set notermguicolors
 elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
@@ -26,34 +15,6 @@ elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
         set notermguicolors
     endif
 endif
-
-let g:seoul256_background = 253
-colorscheme seoul256
-
-let mapleader=","
-
-" buffer navigation
-nnoremap <silent> [b :bprevious<cr>
-nnoremap <silent> ]b :bnext<cr>
-
-" window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-
-" nvim-tree
-nnoremap <leader>e :NvimTreeToggle<cr>
-nnoremap <leader>f :NvimTreeFindFile<cr>
-
-" fzf
-nnoremap <c-p> :Files<cr>
-nnoremap <c-r> :Buffers<cr>
-
-" treesitter
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevel=1
 
 runtime vim.lua
 
