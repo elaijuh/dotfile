@@ -1,4 +1,3 @@
 .DS_Store
 
-nvim/pack/colors/start/vim-paper
-nvim/pack/colors/start/vim-solarized8
+nvim/pack/colors/start/*

@@ -19,7 +19,6 @@ vim.g.mapleader = ','
 -- vim.g.seoul256_background = 253
 -- vim.cmd [[colorscheme seoul256]]
 vim.opt.background = 'light'
--- vim.cmd [[colorscheme kanagawa]]
 vim.cmd [[colorscheme paper]]
 
 -- keymap
