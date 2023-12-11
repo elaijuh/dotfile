@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/hjl/.oh-my-zsh"
@@ -75,23 +75,29 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos z.lua copypath copyfile copybuffer encode64)
+plugins=(git macos z.lua copypath copyfile copybuffer encode64 vagrant kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+tabs -4
+export XDG_CONFIG_HOME=~/.config
+export XDG_DATA_HOME=~/.local/share
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$HOME/.local/bin:$PATH
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -102,12 +108,10 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # brew
 #export HOMEBREW_BREW_GIT_REMOTE=https://mirrors.cloud.tencent.com/homebrew/brew.git
@@ -119,11 +123,17 @@ export LANG=en_US.UTF-8
 #brew tap --custom-remote --force-auto-update homebrew/cask-drivers https://mirrors.cloud.tencent.com/homebrew/homebrew-cask-drivers.git
 
 
+# llvm
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# ruby
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
+
 # go
-export GOPATH="${HOME}/.go"
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$GOPATH/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
+export GOPATH="${HOME}/go"
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export GO111MODULE=on
 
 # nvm
@@ -134,8 +144,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # alias
 alias make=gmake
-alias python="/usr/local/bin/python3" 
 alias geany="/Applications/Geany.app/Contents/MacOS/geany"
+alias k="kubectl"
+alias openssl="/usr/local/opt/openssl@3/bin/openssl"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -146,3 +157,19 @@ alias geany="/Applications/Geany.app/Contents/MacOS/geany"
 # z.lua
 export _ZL_ADD_ONCE=1
 export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json,go.mod"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# gcc
+alias gcc='gcc-13'
+alias g++='gcc++-13'
+
+# k8s
+[[ -f $HOME/fubectl.source ]] && source $HOME/fubectl.source
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+
+
