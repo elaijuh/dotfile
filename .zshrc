@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos z.lua copypath copyfile copybuffer encode64 vagrant kubectl)
+plugins=(git macos z.lua copypath copyfile copybuffer encode64 vagrant kubectl asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,10 +136,6 @@ export GOPATH="${HOME}/go"
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export GO111MODULE=on
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # alias
@@ -158,10 +154,6 @@ alias openssl="/usr/local/opt/openssl@3/bin/openssl"
 export _ZL_ADD_ONCE=1
 export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json,go.mod"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # gcc
 alias gcc='gcc-13'
@@ -172,4 +164,6 @@ alias g++='gcc++-13'
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 
+# curl
+export PATH="/usr/local/opt/curl/bin:$PATH"
 
