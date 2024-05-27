@@ -1,0 +1,32 @@
+usage() {
+	echo "Usage: proxy [on|Off]" 1>&2
+}
+
+CLASH_PROXY=http://127.0.0.1:7890
+SAKURA_PROXY=http://127.0.0.1:33210
+
+if [ "$#" -eq 0 ]; then
+	usage
+fi
+
+case "$1" in
+on)
+	echo "Set http_proxy=$CLASH_PROXY"
+	export http_proxy=$CLASH_PROXY
+	export https_proxy=$http_proxy
+	export no_proxy=127.0.0.1
+	;;
+off)
+	print "Unset http_proxy"
+	unset http_proxy https_proxy
+	launchctl unsetenv https_proxy http_proxy
+	;;
+esac
+
+# sakuracat proxy
+# function proxy_on_sakura() {
+#   export http_proxy=http://127.0.0.1:33210
+#   export https_proxy=$http_proxy
+# 	launchctl setenv http_proxy $http_proxy
+# 	launchctl setenv https_proxy $http_proxy
+# }

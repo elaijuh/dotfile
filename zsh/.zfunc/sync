@@ -1,0 +1,21 @@
+usage() {
+	echo "Usage: sync [dotfile]" 1>&2
+}
+
+if [ "$#" -eq 0 ]; then
+	usage
+fi
+
+case "$1" in
+dotfile)
+	echo "sync zsh"
+	cp ~/.zshrc ~/code/dotfile/zsh/.zshrc
+	cp -r ~/.zfunc ~/code/dotfile/zsh/
+
+	echo "sync kitty"
+	cp ~/.config/kitty/kitty.conf ~/code/dotfile/kitty/.config/kitty/kitty.conf
+
+	echo "sync nvim"
+	cp -r ~/.config/nvim ~/code/dotfile/nvim/.config/
+	;;
+esac
