@@ -6,16 +6,53 @@ if [ "$#" -eq 0 ]; then
 	usage
 fi
 
+DOTFILE_PATH=~/code/dotfile
+
 case "$1" in
 dotfile)
 	echo "sync zsh"
-	cp ~/.zshrc ~/code/dotfile/zsh/.zshrc
-	cp -r ~/.zfunc ~/code/dotfile/zsh/
+	mkdir -p $DOTFILE_PATH/zsh
+	cp ~/.zshrc $DOTFILE_PATH/zsh/.zshrc
+	rsync -a --delete ~/.zfunc/ $DOTFILE_PATH/zsh/.zfunc/
 
 	echo "sync kitty"
-	cp ~/.config/kitty/kitty.conf ~/code/dotfile/kitty/.config/kitty/kitty.conf
+	mkdir -p $DOTFILE_PATH/kitty/.config/kitty
+	cp ~/.config/kitty/kitty.conf $DOTFILE_PATH/kitty/.config/kitty/kitty.conf
 
 	echo "sync nvim"
-	cp -r ~/.config/nvim ~/code/dotfile/nvim/.config/
+	mkdir -p $DOTFILE_PATH/nvim/.config
+	rsync -a --delete ~/.config/nvim/ $DOTFILE_PATH/nvim/.config/nvim/
+
+	echo "sync p10k"
+	mkdir -p $DOTFILE_PATH/p10k
+	cp ~/.p10k.zsh $DOTFILE_PATH/p10k/.p10k.zsh
+
+	echo "sync fzf"
+	mkdir -p $DOTFILE_PATH/fzf
+	cp ~/.fzf.zsh $DOTFILE_PATH/fzf/.fzf.zsh
+
+	echo "sync asdf"
+	mkdir -p $DOTFILE_PATH/asdf
+	cp ~/.asdfrc $DOTFILE_PATH/asdf/.asdfrc
+
+	echo "sync bat"
+	mkdir -p $DOTFILE_PATH/bat/.config/bat
+	cp ~/.config/bat/config $DOTFILE_PATH/bat/.config/bat/config
+
+	echo "sync aerc"
+	mkdir -p $DOTFILE_PATH/aerc/.config
+	rsync -a --delete ~/.config/aerc/ $DOTFILE_PATH/aerc/.config/aerc/
+
+	echo "sync clang"
+	mkdir -p $DOTFILE_PATH/clang
+	cp ~/.clang-format-kernel $DOTFILE_PATH/clang
+
+	echo "sync geany (todo)"
+	echo "sync polybar (todo)"
+	echo "sync rofi (todo)"
+
+
 	;;
+
+
 esac
