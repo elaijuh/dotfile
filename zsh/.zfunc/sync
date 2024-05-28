@@ -50,9 +50,5 @@ dotfile)
 	echo "sync geany (todo)"
 	echo "sync polybar (todo)"
 	echo "sync rofi (todo)"
-
-
 	;;
-
-
 esac
