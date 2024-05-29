@@ -14,7 +14,7 @@ vim.opt.cursorline = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "↴" }
 vim.opt.inccommand = "split"
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
