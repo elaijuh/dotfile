@@ -16,14 +16,6 @@ return {
           enable = true,
         },
       })
-
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      vim.opt.foldlevel = 1
-      vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
-        pattern = { "*" },
-        command = "normal zR",
-      })
     end,
   },
 }

@@ -1,14 +1,14 @@
 return {
   {
-    "hrsh7th/cmp-buffer"
+    "hrsh7th/cmp-buffer",
   },
   {
-    "hrsh7th/cmp-path"
+    "hrsh7th/cmp-path",
   },
   {
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh7th/cmp-nvim-lsp",
   },
-	{
+  {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
@@ -34,8 +34,8 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-	        ['<C-j>'] = cmp.mapping.select_next_item(),
-          ['<C-k>'] = cmp.mapping.select_prev_item(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -44,31 +44,30 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- For luasnip users.
         }, {
-    			{ name = 'buffer', options = { get_bufnrs = vim.api.nvim_list_bufs } },
+          { name = "buffer", options = { get_bufnrs = vim.api.nvim_list_bufs } },
           { name = "path" },
         }),
       })
 
-      cmp.setup.cmdline({'/', '?'}, {
-				-- completion = { autocomplete = false },
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-				-- { name = 'buffer' }
-					{ name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
-				}
-			})
+      cmp.setup.cmdline({ "/", "?" }, {
+        -- completion = { autocomplete = false },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          -- { name = 'buffer' }
+          { name = "buffer", opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
+        },
+      })
 
-			-- Use cmdline & path source for ':'.
-			cmp.setup.cmdline(':', {
-				-- completion = { autocomplete = false },
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = 'path' }
-				}, {
-					{ name = 'cmdline' }
-				})
-			})
-
+      -- Use cmdline & path source for ':'.
+      cmp.setup.cmdline(":", {
+        -- completion = { autocomplete = false },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
     end,
   },
 }
