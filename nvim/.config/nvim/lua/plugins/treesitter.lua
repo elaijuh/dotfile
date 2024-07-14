@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    ft = { "sh", "go", "c", "cpp", "lua", "javascript", "python" },
     build = ":TSUpdate",
     config = function()
       local config = require("nvim-treesitter.configs")

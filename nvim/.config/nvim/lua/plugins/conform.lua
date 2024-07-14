@@ -1,5 +1,6 @@
 return {
   "stevearc/conform.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
     conform.formatters.shfmt = {
@@ -12,6 +13,14 @@ return {
         go = { "goimports", "gofmt" },
         c = { "clang-format" },
         cpp = { "clang-format" },
+        html = { "prettier" },
+        css = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        python = { "black" },
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = function(bufnr)
@@ -30,8 +39,9 @@ return {
           return
         end
         return {
-          timeout_ms = 500,
           lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
         }
       end,
       format_after_save = function(bufnr)
@@ -46,10 +56,12 @@ return {
     local function format()
       conform.format({
         lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
       })
     end
 
-    vim.keymap.set("n", "<leader>f", format, { desc = "Format buffers" })
+    vim.keymap.set({ "n", "v" }, "<leader>f", format, { desc = "Format buffers or range in visual mode" })
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
 }
