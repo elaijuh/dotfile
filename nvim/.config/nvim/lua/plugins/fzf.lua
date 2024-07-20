@@ -6,15 +6,19 @@ return {
       require("fzf-lua").setup({
         winopts = {
           border = "single",
-          priview = {
+          fullscreen = false, -- F2 to toggle
+          preview = {
             wrap = "wrap",
+            hidden = "nohidden",
             title = false,
             horizontal = "right:60%",
-            vertical = "down:45%",
+            vertical = "up:70%",
+            layout = "flex",
           },
         },
         fzf_opts = {
           ["--border"] = "none",
+          ["--layout"] = "default",
         },
         previewers = {
           builtin = {
@@ -22,9 +26,16 @@ return {
           },
         },
         grep = {
+          winopts = {
+            preview = {
+              hidden = "hidden",
+              layout = "vertical",
+            },
+          },
           actions = {
             ["default"] = actions.file_edit_or_qf,
             ["ctrl-q"] = actions.file_sel_to_qf,
+            ["ctrl-g"] = actions.grep_lgrep,
           },
         },
         buffers = {
@@ -86,6 +97,12 @@ return {
         "n",
         "<leader>fs",
         [[<CMD>lua require('fzf-lua').live_grep_resume()<CR>]],
+        { silent = true, noremap = true }
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "<C-/>",
+        [[<CMD>lua require('fzf-lua').lgrep_curbuf()<CR>]],
         { silent = true, noremap = true }
       )
       vim.api.nvim_set_keymap(
@@ -168,31 +185,4 @@ return {
       )
     end,
   },
-  -- {
-  --   "junegunn/fzf.vim",
-  --   config = function()
-  --     vim.cmd([[
-  --       "FZF Buffer Delete
-  --       function! s:list_buffers()
-  --         redir => list
-  --         silent ls
-  --         redir END
-  --         return split(list, "\n")
-  --       endfunction
-
-  --       function! s:delete_buffers(lines)
-  --         execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-  --       endfunction
-
-  --       command! BD call fzf#run(fzf#wrap({
-  --         \ 'source': s:list_buffers(),
-  --         \ 'sink*': { lines -> s:delete_buffers(lines) },
-  --         \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-  --       \ }))
-  --     ]])
-
-  --     vim.keymap.set("n", "<c-p>", ":Files<cr>", { remap = false })
-  --     vim.keymap.set("n", "<c-r>", ":Buffers<cr>", { remap = false })
-  --   end,
-  -- },
 }

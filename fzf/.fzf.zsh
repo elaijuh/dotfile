@@ -1,5 +1,5 @@
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --no-ignore --exclude .git"
-export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
+export FZF_DEFAULT_OPTS="--height 40% --layout reverse --info=inline --border --margin=1 --padding=1 --inline-info"
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
