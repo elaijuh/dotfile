@@ -14,7 +14,7 @@ on)
 	echo "Set http_proxy=$CLASH_PROXY"
 	export http_proxy=$CLASH_PROXY
 	export https_proxy=$http_proxy
-	export no_proxy=127.0.0.1
+	export no_proxy=localhost,127.0.0.1,10.5.0.0/16
 	;;
 off)
 	print "Unset http_proxy"
