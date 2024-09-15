@@ -19,6 +19,10 @@ dotfile)
 	mkdir -p $DOTFILE_PATH/kitty/.config/kitty
 	cp ~/.config/kitty/kitty.conf $DOTFILE_PATH/kitty/.config/kitty/kitty.conf
 
+	echo "sync editorconfig"
+	mkdir -p $DOTFILE_PATH/editorconfig
+	cp ~/.editorconfig $DOTFILE_PATH/editorconfig/.editorconfig
+
 	echo "sync nvim"
 	mkdir -p $DOTFILE_PATH/nvim/.config
 	rsync -a --delete ~/.config/nvim/ $DOTFILE_PATH/nvim/.config/nvim/

@@ -40,6 +40,7 @@ return {
           "goimports",
           "gofumpt",
           "golines",
+          "yamlfmt",
         },
       })
     end,

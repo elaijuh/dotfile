@@ -18,7 +18,7 @@ return {
         javascript = { "prettier" },
         typescript = { "prettier" },
         json = { "prettier" },
-        yaml = { "prettier" },
+        yaml = { "yamlfmt" },
         markdown = { "prettier" },
         python = { "black" },
         ["_"] = { "trim_whitespace" },
