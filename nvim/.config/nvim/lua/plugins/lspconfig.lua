@@ -58,6 +58,8 @@ return {
 
       lspconfig.clangd.setup({
         capabilities = capabilities,
+        filetypes = { "c", "h", "cpp", "hpp" },
+        single_file_support = true,
       })
     end,
   },
