@@ -1,0 +1,23 @@
+[user]
+	name = hjl
+	email = hjiale@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
+[web]
+	browser = firefox
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[pull]
+	rebase = true

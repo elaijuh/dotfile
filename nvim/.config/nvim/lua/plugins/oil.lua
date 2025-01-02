@@ -4,6 +4,7 @@ return {
     local oil = require("oil")
     local detail = false
     oil.setup({
+      skip_confirm_for_simple_edits = true,
       keymaps = {
         ["gd"] = {
           desc = "Toggle file detail view",

@@ -41,6 +41,7 @@ else
   export VISUAL='nvim'
 fi
 alias t="todo.sh"
+alias o="xdg-open"
 
 # go
 export PATH=/usr/local/go/bin:$PATH
@@ -53,9 +54,14 @@ export GO111MODULE=on
 # z.lua
 export _ZL_ADD_ONCE=1
 export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json,go.mod"
+unalias 9
 
 # k8s
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# plan9port
+export PLAN9=/home/hjl/.local/plan9
+export PATH=$PATH:$PLAN9/bin
 
 # local proxy
 proxy on

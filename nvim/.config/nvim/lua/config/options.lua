@@ -18,9 +18,10 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "↴" }
 vim.opt.inccommand = "split"
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
+vim.opt.showtabline = 2
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "//"
+vim.g.maplocalleader = "\\"
 vim.g.have_nerd_font = false
 
 -- [[ autocmd ]]

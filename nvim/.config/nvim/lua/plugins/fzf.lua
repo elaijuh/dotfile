@@ -1,3 +1,4 @@
+-- https://github.com/ibhagwan/fzf-lua/blob/main/README.md#default-options
 return {
   {
     "ibhagwan/fzf-lua",

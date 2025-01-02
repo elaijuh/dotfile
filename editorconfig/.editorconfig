@@ -6,10 +6,14 @@ root = true
 insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
-indent_style = space
-indent_size = 2
+indent_style = tab
+indent_size = 4
 
-[{Makefile,go.mod,go.sum,*.go,.gitmodules}]
+[{go.mod,go.sum,*.go,.gitmodules}]
+indent_style = tab
+indent_size = 4
+
+[Makefile]
 indent_style = tab
 indent_size = 4
 
@@ -17,11 +21,23 @@ indent_size = 4
 indent_style = tab
 indent_size = 4
 
-[*.md]
+[*.{sh,rc}]
+indent_style = tab
 indent_size = 4
+
+[.gitconfig]
+indent_style = tab
+indent_size = 4
+
+[*.md]
 trim_trailing_whitespace = false
+
+[*.lua]
+indent_style = space
+indent_size = 2
 
 eclint_indent_style = unset
 
 [Dockerfile]
+indent_stype = space
 indent_size = 4

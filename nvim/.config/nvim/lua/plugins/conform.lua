@@ -3,12 +3,17 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-    conform.formatters.shfmt = {
-      prepend_args = { "-i", "2" },
-    }
     conform.setup({
+      format = {
+        lsp_fallback = true,
+        async = false,
+        quiet = false,
+        timeout_ms = 500,
+      },
       formatters_by_ft = {
+        bash = { "shfmt" },
         sh = { "shfmt" },
+        zsh = { "shfmt" },
         lua = { "stylua" },
         go = { "goimports", "gofmt" },
         c = { "clang-format" },
@@ -23,6 +28,11 @@ return {
         python = { "black" },
         ["_"] = { "trim_whitespace" },
       },
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "0", "-ci" },
+        },
+      },
       format_on_save = function(bufnr)
         -- Disable autoformat on certain filetypes
         local ignore_filetypes = { "sql", "java" }
@@ -35,7 +45,7 @@ return {
         end
         -- Disable autoformat for files in a certain path
         local bufname = vim.api.nvim_buf_get_name(bufnr)
-        if bufname:match("/node_modules/") then
+        if bufname:match("/node_modules/") or bufname:match("/slides/") then
           return
         end
         return {
@@ -44,13 +54,13 @@ return {
           timeout_ms = 500,
         }
       end,
-      format_after_save = function(bufnr)
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
-        end
-        -- ...additional logic...
-        return { lsp_fallback = true }
-      end,
+      -- format_after_save = function(bufnr)
+      --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+      --     return
+      --   end
+      --   -- ...additional logic...
+      --   return { lsp_fallback = true }
+      -- end,
     })
 
     local function format()
