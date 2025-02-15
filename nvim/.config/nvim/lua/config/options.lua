@@ -19,6 +19,7 @@ vim.opt.inccommand = "split"
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 vim.opt.showtabline = 2
+vim.opt.tabline = "%!expand('%:p:h')"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
