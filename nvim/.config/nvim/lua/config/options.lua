@@ -26,10 +26,10 @@ vim.g.maplocalleader = "\\"
 vim.g.have_nerd_font = false
 
 -- [[ autocmd ]]
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  command = "silent! lcd %:p:h",
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   pattern = { "*" },
+--   command = "silent! lcd %:p:h",
+-- })
 
 -- [[ preview window ]]
 --

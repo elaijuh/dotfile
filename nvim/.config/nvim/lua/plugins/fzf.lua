@@ -30,7 +30,7 @@ return {
             title = false,
             horizontal = "right:60%",
             vertical = "up:70%",
-            layout = "flex",
+            layout = "vertical",
           },
         },
         fzf_opts = {

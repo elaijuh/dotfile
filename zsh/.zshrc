@@ -47,6 +47,8 @@ alias o="xdg-open"
 export PATH=/usr/local/go/bin:$PATH
 export GO111MODULE=on
 
+# rust
+. $HOME/.cargo/env
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -60,7 +62,7 @@ unalias 9
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # plan9port
-export PLAN9=/home/hjl/.local/plan9
+export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin
 
 # local proxy
