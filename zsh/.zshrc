@@ -22,9 +22,6 @@ case "$OSTYPE" in
 esac
 source $ZSH/oh-my-zsh.sh
 
-# zfunc
-fpath=(~/.zfunc $fpath)
-autoload -Uz $fpath[1]/*(.:t)
 
 # common
 tabs -4
@@ -43,6 +40,7 @@ fi
 alias t="todo.sh"
 alias o="xdg-open"
 
+
 # go
 export PATH=/usr/local/go/bin:$PATH
 export GO111MODULE=on
@@ -50,13 +48,20 @@ export GO111MODULE=on
 # rust
 . $HOME/.cargo/env
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # z.lua
 export _ZL_ADD_ONCE=1
 export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json,go.mod"
 unalias 9
+unalias z # ~/.zfunc/z
+
+# bat
+export BAT_THEME=gruvbox-light
+export BAT_STYLE=numbers,header-filename,header-filesize
+
+# fzf
+source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf-git.sh ] && source ~/.fzf-git.sh
 
 # k8s
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -65,5 +70,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin
 
-# local proxy
+# functions
+fpath=(~/.zfunc $fpath)
+autoload -Uz $fpath[1]/*(.:t)
 proxy on
