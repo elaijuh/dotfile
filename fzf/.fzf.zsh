@@ -1,5 +1,4 @@
 export FZF_DEFAULT_COMMAND="rg -uu --files -H"
-# export FZF_DEFAULT_OPTS_FILE=~/.fzfrc
 export FZF_DEFAULT_OPTS="
 	--height 40%
 	--layout reverse

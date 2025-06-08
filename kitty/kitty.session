@@ -1,0 +1,2 @@
+launch --title "docs" --cwd ~/code/docs
+launch --title "scripts" --cwd ~/code/scripts
