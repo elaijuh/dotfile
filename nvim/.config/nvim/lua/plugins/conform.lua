@@ -18,13 +18,13 @@ return {
         go = { "goimports", "gofmt" },
         c = { "clang-format" },
         cpp = { "clang-format" },
-        html = { "prettier" },
-        css = { "prettier" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        json = { "prettier" },
+        html = { "dprint" },
+        css = { "dprint" },
+        javascript = { "dprint" },
+        typescript = { "dprint" },
+        json = { "dprint" },
         yaml = { "yamlfmt" },
-        markdown = { "prettier" },
+        -- markdown = { "dprint" },
         python = { "black" },
         ["_"] = { "trim_whitespace" },
       },
@@ -32,6 +32,11 @@ return {
         shfmt = {
           prepend_args = { "-i", "0", "-ci" },
         },
+        -- dprint = {
+        --   condition = function(ctx)
+        --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
+        --   end,
+        -- },
       },
       format_on_save = function(bufnr)
         -- Disable autoformat on certain filetypes
