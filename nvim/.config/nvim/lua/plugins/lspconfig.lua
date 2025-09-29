@@ -16,15 +16,15 @@ return {
     { "<leader>D", vim.lsp.buf.type_definition },
     { "<leader>rn", vim.lsp.buf.rename },
   },
+
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local lspconfig = require("lspconfig")
 
-    lspconfig.bashls.setup({
+    vim.lsp.config("bashls", {
       capabilities = capabilities,
     })
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
         Lua = {
@@ -35,9 +35,9 @@ return {
       },
     })
 
-    lspconfig.dprint.setup({})
+    vim.lsp.config("dprint", {})
 
-    lspconfig.gopls.setup({
+    vim.lsp.config("gopls", {
       capabilities = capabilities,
       flags = {
         debounce_text_changes = 150,
@@ -57,7 +57,7 @@ return {
       },
     })
 
-    lspconfig.clangd.setup({
+    vim.lsp.config("clangd", {
       capabilities = {
         callHierarchy = {
           dynamicRegistration = false,
@@ -240,18 +240,8 @@ return {
           workspaceFolders = true,
         },
       },
-      cmd = { "clangd", "--background-index" },
-      filetypes = { "c", "cpp", "objc", "objcpp" },
-      on_init = function(client, result)
-        if result.offsetEncoding then
-          client.offset_encoding = result.offsetEncoding
-        end
-      end,
-      root_dir = function(fname)
-        local filename = util.path.is_absolute(fname) and fname or util.path.join(vim.loop.cwd(), fname)
-        return root_pattern(filename) or util.path.dirname(filename)
-      end,
     })
+    vim.lsp.enable("clangd")
 
     vim.lsp.set_log_level("off")
   end,

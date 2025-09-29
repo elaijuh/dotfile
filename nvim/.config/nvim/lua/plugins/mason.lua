@@ -5,12 +5,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
-    -- opts = {
-    --   ensure_installed = {
-    --     "clangd",
-    --     "clang-format",
-    --   },
-    -- },
     config = function()
       local mason = require("mason")
       local mason_lspconfig = require("mason-lspconfig")
@@ -35,7 +29,7 @@ return {
         ensure_installed = {
           "stylua",
           "shfmt",
-          "prettier",
+          "dprint",
           "black",
           "goimports",
           "gofumpt",
