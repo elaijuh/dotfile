@@ -1,0 +1,9 @@
+os:
+  edit: "hx {{filename}}"
+git:
+  pagers:
+    - pager: delta --paging=never --side-by-side --line-numbers --light
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse

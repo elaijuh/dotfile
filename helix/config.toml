@@ -1,0 +1,19 @@
+theme = "acme"
+
+[editor]
+line-number = "relative"
+mouse = false
+popup-border = "all"
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+minus = "file_picker_in_current_buffer_directory"
+C-g = [":write-all", ":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":reload-all"]
