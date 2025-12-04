@@ -1,0 +1,29 @@
+[mgr]
+show_hidden = true
+
+[opener]
+edit = [
+	{ run = 'helix "$@"', block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[open]
+rules = [
+	{ mime = "inode/directory", use = ["open"] },
+	{ mime = "text/*", use = "edit" },
+	{ mime = "video/*", use = "play" },
+	{ name = "*.json", use = "edit" },
+	{ name = "*.html", use = [ "open", "edit" ] },
+]
+
+[fs]
+prefetch_workers = 8
+
+[vfs]
+cache_size = 52428800
+
+[preview]
+max_depth = 3
+skep_large_files = true
