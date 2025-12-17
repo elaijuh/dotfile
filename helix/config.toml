@@ -6,6 +6,10 @@ mouse = false
 popup-border = "all"
 true-color = true
 
+[editor.soft-wrap]
+enable = true
+max-wrap = 0
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -24,3 +28,6 @@ C-e = [
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
 ]
+
+[keys.insert]
+j = {j = "normal_mode"}
