@@ -31,8 +31,8 @@ function my_syncdotfile -d "sync configs to dotfile"
     argparse p/push -- $argv
 
     if set -lq _flag_p
-        echo push
-        cd ~/code/$dotfile_repo
+        echo "git push"
+        cd $dotfile_repo
         git add .
         git commit -am sync
         git push origin master
