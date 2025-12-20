@@ -1,6 +1,80 @@
+[[language]]
+name = "cpp"
+language-servers = [ "clangd" ]
+indent = { tab-width = 4, unit = "t" }
+auto-format = true
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+indent = { tab-width = 4, unit = "t" }
+auto-format = true
+
+[language-server.clangd]
+command = "clangd"
+args = [
+	"--background-index",
+	"--clang-tidy",
+	"--log=verbose",
+	"--compile-commands-dir=build"
+]
+
+[[language]]
+name = "go"
+formatter = { command = "goimports"}
+auto-format = true
+
 [language-server.gopls]
 command = "gopls"
 args = ["-logfile=/tmp/gopls.log",  "serve"]
 
 [language-server.gopls.config]
 "ui.diagnostic.staticcheck" = true
+
+[[language]]
+name = "ocaml"
+language-servers = [ "ocamllsp" ]
+scope = "source.ocaml"
+file-types = ["ml", "mli"]
+formatter = { command = "ocamlformat", args = ["-", "--impl", "--enable-outside-detected-project"] }
+auto-format = true
+
+[[language]]
+name = "bash"
+file-types = ["sh", "bash", "zsh"]
+language-servers = [ "bash-language-server" ]
+formatter = { command = "shfmt", args = [ "-i", "0", "-s", "-ci", "-sr" ] }
+auto-format = true
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]
+
+[[language]]
+name = "fish"
+file-types = ["fish"]
+language-servers = [ "fish-lsp" ]
+formatter = { command = "fish_indent" }
+auto-format = true
+
+[language-server.fish-lsp]
+command = "fish-lsp"
+args = ["start"]
+environment = { "fish_lsp_show_client_popups" = "false" }
+
+
+[[language]]
+name = "json"
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+file-types = ["yml", "yaml"]
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "yaml" ] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "markdown" ] }
+auto-format = true

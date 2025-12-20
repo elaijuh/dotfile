@@ -12,6 +12,7 @@ open = [
 [open]
 rules = [
 	{ mime = "inode/directory", use = ["open"] },
+	{ mime = "inode/empty", use = "edit" },
 	{ mime = "text/*", use = "edit" },
 	{ mime = "video/*", use = "play" },
 	{ name = "*.json", use = "edit" },
@@ -27,3 +28,13 @@ cache_size = 52428800
 [preview]
 max_depth = 3
 skep_large_files = true
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
