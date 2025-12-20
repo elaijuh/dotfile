@@ -35,6 +35,6 @@ function my_syncdotfile -d "sync configs to dotfile"
         cd ~/code/$dotfile_repo
         git add .
         git commit -am sync
-        # git push origin master
+        git push origin master
     end
 end
