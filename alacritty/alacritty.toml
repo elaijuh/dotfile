@@ -1,0 +1,25 @@
+[general]
+live_config_reload = true
+import = [
+	"~/.config/alacritty/themes/themes/papertheme.toml"
+]
+
+[font]
+normal = { family = "IosevkaTerm NFM", style = "Regular" }
+bold = { family = "IosevkaTerm NFM", style = "Bold" }
+italic = { family = "IosevkaTerm NFM", style = "Italic" }
+size = 13
+offset = { x = 1, y = 0 }
+
+[window]
+padding = { x = 5, y = 0 }
+option_as_alt = "Both"
+
+[selection]
+save_to_clipboard = true
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
+
