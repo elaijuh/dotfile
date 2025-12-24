@@ -3,13 +3,11 @@ name = "cpp"
 language-servers = [ "clangd" ]
 indent = { tab-width = 4, unit = "t" }
 auto-format = true
-
 [[language]]
 name = "c"
 language-servers = ["clangd"]
 indent = { tab-width = 4, unit = "t" }
 auto-format = true
-
 [language-server.clangd]
 command = "clangd"
 args = [
@@ -23,11 +21,9 @@ args = [
 name = "go"
 formatter = { command = "goimports"}
 auto-format = true
-
 [language-server.gopls]
 command = "gopls"
 args = ["-logfile=/tmp/gopls.log",  "serve"]
-
 [language-server.gopls.config]
 "ui.diagnostic.staticcheck" = true
 
@@ -45,7 +41,6 @@ file-types = ["sh", "bash", "zsh"]
 language-servers = [ "bash-language-server" ]
 formatter = { command = "shfmt", args = [ "-i", "0", "-s", "-ci", "-sr" ] }
 auto-format = true
-
 [language-server.bash-language-server]
 command = "bash-language-server"
 args = ["start"]
@@ -56,7 +51,6 @@ file-types = ["fish"]
 language-servers = [ "fish-lsp" ]
 formatter = { command = "fish_indent" }
 auto-format = true
-
 [language-server.fish-lsp]
 command = "fish-lsp"
 args = ["start"]
@@ -76,5 +70,7 @@ auto-format = true
 
 [[language]]
 name = "markdown"
+file-types = ["md", "mkd", "mdx", "markdown"]
+language-servers = [ "marksman" ]
 formatter = { command = "dprint", args = [ "fmt", "--stdin", "markdown" ] }
 auto-format = true
