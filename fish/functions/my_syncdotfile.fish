@@ -16,7 +16,8 @@ function my_syncdotfile -d "sync configs to dotfile"
         case fish
             echo "sync fish config..."
             cp ~/.config/fish/{config.fish,fish_plugins} $dotfile_repo/fish/
-            cp ~/.config/fish/functions/my_syncdotfile.fish $dotfile_repo/fish/functions
+            cp ~/.config/fish/functions/my_syncdotfile.fish $dotfile_repo/fish/functions/
+            # cp ~/.config/fish/themes/my.theme $dotfile_repo/fish/themes/
         case foot
             echo "sync foot config..."
             cp ~/.config/foot/foot.ini $dotfile_repo/foot/
@@ -26,6 +27,18 @@ function my_syncdotfile -d "sync configs to dotfile"
         case yazi
             echo "sync yazi config..."
             cp ~/.config/yazi/{yazi.toml,theme.toml,keymap.toml,init.lua} $dotfile_repo/yazi/
+        case tmux
+            echo "sync tmux config..."
+            cp ~/.tmux.conf $dotfile_repo/tmux/
+        case dprint
+            echo "sync dprint config..."
+            cp ~/.dprint.json $dotfile_repo/dprint/
+        case glow
+            echo "sync glow config..."
+            cp ~/.config/glow/glow.yml $dotfile_repo/glow/
+        case newsboat
+            echo "sync newsboat config..."
+            cp ~/.config/newsboat/{urls,config} $dotfile_repo/newsboat/
     end
 
     argparse p/push -- $argv

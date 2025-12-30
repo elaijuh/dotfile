@@ -1,0 +1,27 @@
+auto-reload yes
+
+bind k everywhere up
+bind j everywhere down
+bind l feedlist,articlelist,article open
+bind h feedlist,articlelist,article quit
+bind g article home
+bind G article end
+bind ^b everywhere pageup
+bind ^f everywhere pagedown
+bind ^u everywhere halfpageup
+bind ^d everywhere halfpagedown
+
+browser "firefox --new-tab %u"
+
+color background          black white
+color listnormal          black white
+color listfocus           white blue   bold
+color listnormal_unread   black white  bold
+color listfocus_unread    white blue bold
+color title               white green bold
+color info                white blue   bold
+color hint-key            white blue bold
+color hint-keys-delimiter white blue
+color hint-separator      white blue bold
+color hint-description    white blue
+color article             black white

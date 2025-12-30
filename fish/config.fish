@@ -5,6 +5,15 @@ fish_add_path -m ~/.local/bin ~/go/bin /usr/local/go/bin
 set -gx http_proxy 'http://127.0.0.1:7897'
 set -gx https_proxy 'http://127.0.0.1:7897'
 
+set -gx XDG_CONFIG_HOME ~/.config
+set -gx XDG_CACHE_HOME ~/.cache
+set -gx XDG_DATA_HOME ~/.local/share
+set -gx LC_ALL en_US.UTF-8
+set -gx LANG en_US.UTF-8
+set -gx MANPATH ~/.local/share/man:$MANPATH
+set -gx EDITOR helix
+set -gx VISUAL helix
+
 alias hx helix
 
 if status is-interactive
@@ -19,6 +28,10 @@ if status is-interactive
 
     if test "$TERM" != dumb
         # starship init fish | source
+    end
+
+    if set -q SSH_CONNECTION
+        set -x TERM xterm-256color
     end
 end
 
