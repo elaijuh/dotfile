@@ -28,6 +28,15 @@ args = ["-logfile=/tmp/gopls.log",  "serve"]
 "ui.diagnostic.staticcheck" = true
 
 [[language]]
+name = "rust"
+file-types = ["rs"]
+language-servers = [ "rust-analyzer" ]
+auto-format = true
+roots = ["Cargo.toml", "Cargo.lock"]
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[[language]]
 name = "ocaml"
 language-servers = [ "ocamllsp" ]
 scope = "source.ocaml"

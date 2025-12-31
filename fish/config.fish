@@ -1,10 +1,10 @@
 set fish_greeting ""
 
 fish_add_path -m ~/.local/bin ~/go/bin /usr/local/go/bin
-
-set -gx http_proxy 'http://127.0.0.1:7897'
-set -gx https_proxy 'http://127.0.0.1:7897'
-
+fish_config theme choose none
+set -g fish_key_bindings fish_default_key_bindings
+set -gx http_proxy 'http://127.0.0.1:7899'
+set -gx https_proxy 'http://127.0.0.1:7899'
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx XDG_CACHE_HOME ~/.cache
 set -gx XDG_DATA_HOME ~/.local/share
@@ -13,16 +13,13 @@ set -gx LANG en_US.UTF-8
 set -gx MANPATH ~/.local/share/man:$MANPATH
 set -gx EDITOR helix
 set -gx VISUAL helix
+set -gx BROWSER firefox
 
 alias hx helix
 
 if status is-interactive
     alias xclip 'xclip -sel c'
     alias cat 'bat --paging=never'
-    alias less bat
-    alias more bat
-    alias tree 'eza --tree'
-
     fzf --fish | source
     zoxide init fish | source
 

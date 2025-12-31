@@ -5,6 +5,7 @@ line-number = "relative"
 mouse = false
 popup-border = "all"
 true-color = true
+bufferline = "multiple"
 
 [editor.soft-wrap]
 enable = true
@@ -19,6 +20,9 @@ select = "underline"
 hidden = false
 
 [keys.normal]
+"#" = "toggle_comments"
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
 minus = "file_picker_in_current_buffer_directory"
 C-g = [":write-all", ":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":reload-all"]
 C-e = [
@@ -29,6 +33,10 @@ C-e = [
   ':redraw',
 ]
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
+[keys.select]
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
 
 [keys.insert]
 # j = {j = "normal_mode"}
