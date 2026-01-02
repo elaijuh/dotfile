@@ -1,0 +1,53 @@
+set from = "hjiale@gmail.com"
+set realname = "Jiale Hu"
+
+# IMAP settings
+set imap_user = "hjiale@gmail.com"
+set imap_pass = "svnohzbvytkcitdx"
+
+# SMTP settings
+set smtp_url = "smtps://hjiale@smtp.gmail.com"
+set smtp_pass = "svnohzbvytkcitdx"
+
+# Remote Gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 60
+# set signature = "~/.mutt/signature"
+set copy = no # no save to record
+set header_cache = "~/.cache/mutt/header"
+set message_cachedir = "~/.cache/mutt/body"
+# set sort = "reverse-date"
+set editor = `echo \$EDITOR`
+set charset = "utf-8"
+set send_charset = "us-ascii:iso-8859-1:utf-8"
+unset use_domain
+
+# index
+set sort = threads
+set sort_aux = last-date-received
+set index_format="%4C %Z %{%b %d} %-15.15L (%E) %s"
+
+# pager
+set pager = "less -R"
+unset prompt_after
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# macro
+macro index gd "<change-folder>$postponed<enter>" "go to drafts"
+macro index gs "<change-folder>$record<enter>" "go to sent"
+macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash""
+bind index G imap-fetch-mail
+
+# color
+color index default default ~P
+color index red default ~D
+color normal default default
