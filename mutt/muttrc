@@ -31,7 +31,7 @@ unset use_domain
 
 # index
 set sort = threads
-set sort_aux = last-date-received
+set sort_aux = reverse-last-date-received
 set index_format="%4C %Z %{%b %d} %-15.15L (%E) %s"
 
 # pager

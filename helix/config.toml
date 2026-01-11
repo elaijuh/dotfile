@@ -1,28 +1,52 @@
 theme = "acme"
 
 [editor]
+text-width = 80
 line-number = "relative"
 mouse = false
 popup-border = "all"
 true-color = true
+cursorline = true
+rulers = [80, 120]
+trim-trailing-whitespace = true
 bufferline = "multiple"
+
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.smart-tab]
+enable = false
 
 [editor.soft-wrap]
 enable = true
-max-wrap = 0
+max-wrap = 25
+max-indent-retain = 0
+wrap-at-text-width = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-select = "underline"
+select = "block"
 
 [editor.file-picker]
 hidden = false
+
+[editor.statusline]
+center = ["version-control"]
+
 
 [keys.normal]
 "#" = "toggle_comments"
 "^" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
+"D" = "@vgld"
+ret = "expand_selection"
+backspace = "shrink_selection"
 minus = "file_picker_in_current_buffer_directory"
 C-g = [":write-all", ":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":reload-all"]
 C-e = [
@@ -37,6 +61,8 @@ space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 [keys.select]
 "^" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
+ret = "expand_selection"
+backspace = "shrink_selection"
 
 [keys.insert]
 # j = {j = "normal_mode"}

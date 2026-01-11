@@ -3,10 +3,10 @@ show_hidden = true
 
 [opener]
 edit = [
-	{ run = 'helix "$@"', block = true, for = "unix" },
+	{ run = "helix %s", block = true, for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+	{ run = "xdg-open %s", block = true, for = "unix" },
 ]
 
 [open]
@@ -15,8 +15,9 @@ rules = [
 	{ mime = "inode/empty", use = "edit" },
 	{ mime = "text/*", use = "edit" },
 	{ mime = "video/*", use = "play" },
-	{ name = "*.json", use = "edit" },
-	{ name = "*.html", use = [ "open", "edit" ] },
+	{ url = "*.json", use = "edit" },
+	{ url = "*.html", use = [ "open", "edit" ] },
+	{ url = "*.pdf", use = "open" },
 ]
 
 [fs]
