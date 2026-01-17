@@ -1,5 +1,7 @@
 [mgr]
 show_hidden = true
+show_symlink = true
+linemode = "size"
 
 [opener]
 edit = [
@@ -27,15 +29,12 @@ prefetch_workers = 8
 cache_size = 52428800
 
 [preview]
+wrap = "yes"
 max_depth = 3
 skep_large_files = true
 
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
-
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+[plugin]
+prepend_fetchers = [
+	{ id = "git", url = "*", run = "git"},
+	{ id = "git", url = "*/", run = "git"},
+]
