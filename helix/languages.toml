@@ -47,12 +47,18 @@ auto-format = true
 [[language]]
 name = "python"
 indent = { tab-width = 4, unit = "    " }
-language-servers = ["ruff"]
+language-servers = ["ty", "ruff"]
+file-types = ["py", "pyi", "py3", "pyw", ".pythonstartup", ".pythonrc"]
+shebangs = ["python", "python3"]
+roots = [".", "pyproject.toml", ".venv"]
 formatter = { command = "ruff", args = ["format", "-"] }
 auto-format = true
 scope = "source.python"
 [language-server.ruff]
 command = "ruff"
+args = ["server"]
+[language-server.ty]
+command = "ty"
 args = ["server"]
 
 [[language]]

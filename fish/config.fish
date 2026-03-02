@@ -19,7 +19,7 @@ alias hx helix
 
 if status is-interactive
     alias xclip 'xclip -sel c'
-    alias cat 'bat --paging=never'
+    alias tree 'tree -Fha'
     fzf --fish | source
     zoxide init fish | source
 

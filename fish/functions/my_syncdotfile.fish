@@ -39,6 +39,9 @@ function my_syncdotfile -d "sync configs to dotfile"
         case newsboat
             echo "sync newsboat config..."
             cp ~/.config/newsboat/{urls,config} $dotfile_repo/newsboat/
+        case mutt
+            echo "sync mutt config..."
+            cp ~/.mutt/{muttrc,mailcap} $dotfile_repo/mutt/
     end
 
     argparse p/push -- $argv
