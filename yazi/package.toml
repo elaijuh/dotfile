@@ -1,0 +1,19 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:zoom"
+rev = "56971d0"
+hash = "a638db397a5a41d3f3a08a7427ccead1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "56971d0"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "56971d0"
+hash = "36a484acf6a0a0219c543ccb4cee218f"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "ffe6e3a"
+hash = "b7f67b15a9f94f408d94b9630465c37a"
