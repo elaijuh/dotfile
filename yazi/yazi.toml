@@ -5,7 +5,7 @@ linemode = "size"
 
 [opener]
 edit = [
-	{ run = "helix %s", block = true, for = "unix" },
+	{ run = "hx %s", block = true, for = "unix" },
 ]
 open = [
 	{ run = "xdg-open %s", block = true, for = "unix" },
