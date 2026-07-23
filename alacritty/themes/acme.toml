@@ -1,0 +1,97 @@
+# =============================================================================
+#  acme.toml  —  Plan 9 "acme" color theme for Alacritty
+#
+#  Black text on acme's signature pale-yellow "paper" background, with the
+#  editor's blue command text, yellow-green borders, and purple-blue accents.
+#  Colors are drawn from the Plan 9 <draw.h> palette that acme uses:
+#     DPaleyellow #ffffaa   DDarkyellow  #eeee9e   DYellowgreen #99994c
+#     DMedblue    #0000cc   DPurpleblue  #8888cc   DPalegreyblue #4993dd
+#     DDarkgreen  #448844   DBluegreen   #008888   DPalebluegreen #aaffff
+#
+#  This is a LIGHT theme: "normal" colors are chosen dark enough to read on the
+#  pale-yellow paper; the brighter/paler Plan 9 tones live in the bright slots.
+#
+#  Install:
+#    mkdir -p ~/.config/alacritty/themes
+#    cp acme.toml ~/.config/alacritty/themes/
+#  Then add to ~/.config/alacritty/alacritty.toml:
+#    [general]
+#    import = ["~/.config/alacritty/themes/acme.toml"]
+#  (On Alacritty < 0.14 use a top-level `import = [...]` without [general].)
+# =============================================================================
+
+# -- Primary: acme paper + black ink -----------------------------------------
+[colors.primary]
+background = "#ffffea"        # DPaleyellow+DWhite mix — acme body background
+foreground = "#000000"        # DBlack — text
+dim_foreground = "#4d4d3f"
+bright_foreground = "#000000"
+
+# -- Cursor: black bar over paper (acme style) -------------------------------
+[colors.cursor]
+text = "#ffffea"
+cursor = "#0000cc" # DMedblue accent; use "#000000" for a black cursor
+
+[colors.vi_mode_cursor]
+text = "#ffffea"
+cursor = "#99994c" # DYellowgreen
+
+# -- Selection: acme's dark-yellow highlight with black text -----------------
+[colors.selection]
+text = "#000000"
+background = "#eeee9e" # DDarkyellow — acme text selection
+
+# -- Search / hints: reuse the acme tag + selection palette ------------------
+[colors.search.matches]
+foreground = "#000000"
+background = "#9eeeee" # DPalegreygreen — acme tag highlight
+
+[colors.search.focused_match]
+foreground = "#ffffea"
+background = "#0000cc" # DMedblue
+
+[colors.hints.start]
+foreground = "#000000"
+background = "#eeee9e"
+
+[colors.hints.end]
+foreground = "#000000"
+background = "#9eeeee"
+
+# -- Footer bar (search/command line) ----------------------------------------
+[colors.footer_bar]
+foreground = "#000000"
+background = "#eaffff" # DPalebluegreen+DWhite mix — acme tag background
+
+# -- Normal (0-7): readable on the pale-yellow paper -------------------------
+[colors.normal]
+black = "#000000"   # DBlack
+red = "#cc0000"     # dark red (Plan 9 has no dark red; DRed is bright)
+green = "#1e7d1e"   # darkened green (reads on light selection; staged files)
+yellow = "#99994c"  # DYellowgreen — acme border/olive
+blue = "#0000cc"    # DMedblue — acme command/link text
+magenta = "#8888cc" # DPurpleblue — acme tag border
+cyan = "#008888"    # DBluegreen
+white = "#d8d8c8"   # light warm gray
+
+# -- Bright (8-15): brighter/more saturated Plan 9 tones ---------------------
+[colors.bright]
+black = "#7a7a66"   # warm gray (dim text / comments)
+red = "#ff0000"     # DRed
+green = "#2a8a2a"
+yellow = "#aa8800"  # dark gold
+blue = "#4993dd"    # DPalegreyblue
+magenta = "#9a8ad6" # lighter purple-blue
+cyan = "#00aaaa"
+white = "#ffffff"   # DWhite
+
+# -- Dim (darker, desaturated) -----------------------------------------------
+[colors.dim]
+black = "#000000"
+red = "#7a1f1f"
+green = "#2f5a2f"
+yellow = "#66663a"
+blue = "#00007a"
+magenta = "#5a5a88"
+cyan = "#0a5a5a"
+white = "#a0a094"

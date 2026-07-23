@@ -1,0 +1,41 @@
+# =============================================================================
+#  lazygit acme theme  —  merge this gui.theme block into
+#  ~/.config/lazygit/config.yml  (lazygit uses your terminal's background,
+#  so run it in the acme paper terminal). Colors: Plan 9 draw.h palette.
+# =============================================================================
+gui:
+  theme:
+    activeBorderColor:
+      - '#0000CC'          # focused pane border (acme blue)
+      - bold
+    inactiveBorderColor:
+      - '#99994C'          # unfocused borders (yellow-green)
+    searchingActiveBorderColor:
+      - '#AA8800'          # border while searching (gold)
+      - bold
+    optionsTextColor:
+      - '#0000CC'          # keybinding hints (blue)
+    selectedLineBgColor:
+      - '#EEEE9E'          # selected line bg (acme dark-yellow)
+    inactiveViewSelectedLineBgColor:
+      - '#F2F2D8'          # selected line in unfocused view (faint)
+    cherryPickedCommitFgColor:
+      - '#FFFFEA'
+    cherryPickedCommitBgColor:
+      - '#0000CC'          # cherry-picked commits: paper on blue
+    markedBaseCommitFgColor:
+      - '#FFFFEA'
+    markedBaseCommitBgColor:
+      - '#AA8800'          # marked base commit: paper on gold
+    unstagedChangesColor:
+      - '#CC0000'          # unstaged changes (red)
+    defaultFgColor:
+      - '#000000'          # default text (black ink)
+
+# --- Diff preview: render through delta so it matches your acme delta theme ---
+# lazygit doesn't use ~/.gitconfig's core.pager automatically; set it here.
+# Current schema uses the `pagers` array (older `paging:` is deprecated).
+git:
+  pagers:
+    - pager: delta --paging=never --light
+      colorArg: always

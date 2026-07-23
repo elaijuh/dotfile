@@ -1,0 +1,146 @@
+# -----------------------------------------------------------------------------
+# acme.yaml — a k9s skin inspired by the Plan 9 "acme" editor (Rob Pike)
+#
+# The acme look: black text on a pale-yellow paper background, with pale-cyan
+# "tag" bars, yellow-green borders, and blue command accents. Colors are taken
+# from the Plan 9 draw.h palette / acme.c as used by the editor.
+#
+# Install:
+#   Linux:  ~/.config/k9s/skins/acme.yaml
+#   macOS:  ~/Library/Application Support/k9s/skins/acme.yaml
+#
+# Activate (globally) in your k9s config.yaml:
+#   k9s:
+#     ui:
+#       skin: acme
+#
+# Or per-context by setting `skin: acme` in that context's config block.
+# -----------------------------------------------------------------------------
+
+# --- acme / Plan 9 palette ---
+foreground: &fg "#000000" # DBlack — text
+paper: &bg "#ffffea" # DPaleyellow + DWhite mix — body background
+tag: &tag "#eaffff" # DPalebluegreen + DWhite mix — tag/bar background
+selection: &sel "#eeee9e" # DDarkyellow — highlight/selection
+border: &border "#99994c" # DYellowgreen — text-window border
+accent: &accent "#8888cc" # DPurpleblue — tag border / focus accent
+blue: &blue "#0000cc" # DMedblue — command/link text
+cyanhi: &cyanhi "#9eeeee" # DPalegreygreen — tag highlight
+green: &green "#448844" # DGreygreen — added/ok
+red: &red "#cc0000" # error
+gray: &gray "#888888" # completed/muted
+white: &white "#ffffff" # DWhite
+
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *fg
+    bgColor: *bg
+    logoColor: *blue
+
+  # Command prompt (:) styles
+  prompt:
+    fgColor: *fg
+    bgColor: *tag
+    suggestColor: *accent
+
+  # ClusterInfoView styles
+  info:
+    fgColor: *blue
+    sectionColor: *fg
+
+  # Help panel styles
+  help:
+    fgColor: *fg
+    bgColor: *bg
+    keyColor: *blue
+    numKeyColor: *accent
+    sectionColor: *border
+
+  # Dialog (confirm/prompt) styles
+  dialog:
+    fgColor: *fg
+    bgColor: *tag
+    buttonFgColor: *fg
+    buttonBgColor: *accent
+    buttonFocusFgColor: *white
+    buttonFocusBgColor: *blue
+    labelFgColor: *border
+    fieldFgColor: *fg
+
+  frame:
+    # Window borders
+    border:
+      fgColor: *border
+      focusColor: *accent
+    # Menu / shortcut bar
+    menu:
+      fgColor: *fg
+      keyColor: *blue
+      numKeyColor: *accent
+    # Breadcrumbs
+    crumbs:
+      fgColor: *fg
+      bgColor: *tag
+      activeColor: *sel
+    # Resource status colors
+    status:
+      # newColor: *green
+      newColor: *fg
+      modifyColor: *blue
+      addColor: *green
+      errorColor: *red
+      highlightcolor: *accent
+      killColor: *red
+      completedColor: *gray
+    # Border title styles
+    title:
+      fgColor: *fg
+      bgColor: *tag
+      highlightColor: *blue
+      counterColor: *accent
+      filterColor: *border
+
+  views:
+    # CPU/MEM charts
+    charts:
+      bgColor: *bg
+      defaultDialColors:
+        - *blue
+        - *red
+      defaultChartColors:
+        - *blue
+        - *red
+    # Resource tables
+    table:
+      fgColor: *fg
+      bgColor: *bg
+      cursorFgColor: *bg
+      cursorBgColor: *sel
+      markColor: *green
+      header:
+        fgColor: *fg
+        bgColor: *tag
+        sorterColor: *blue
+        selectedSortColumnColor: *fg
+    # Xray view
+    xray:
+      fgColor: *fg
+      bgColor: *bg
+      cursorColor: *sel
+      graphicColor: *accent
+      showIcons: false
+    # YAML view
+    yaml:
+      keyColor: *blue
+      colonColor: *border
+      valueColor: *fg
+    # Logs view
+    logs:
+      fgColor: *fg
+      bgColor: *bg
+      indicator:
+        fgColor: *fg
+        bgColor: *tag
+        toggleOnColor: *green
+        toggleOffColor: *gray
