@@ -1,76 +1,40 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+path=("$HOME/.local/bin" "/opt/homebrew/bin" "/opt/homebrew/opt/coreutils/libexec/gnubin" $path)
+HOMEBREW_NO_ANALYTICS=1
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(systemd git z.lua vi-mode copypath copyfile copybuffer encode64 kubectl fubectl asdf)
-case "$OSTYPE" in
-  darwin*)
-    echo "Mac"
-  ;;
-  linux*)
-    echo "Linux"
-  ;;
-esac
-source $ZSH/oh-my-zsh.sh
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
 
-# common
-tabs -4
-export XDG_CONFIG_HOME=~/.config
-export XDG_CACHE_HOME=~/.cache
-export XDG_DATA_HOME=~/.local/share
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export MANPATH=~/.local/share/man:$MANPATH
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-fi
-alias t="todo.sh"
-alias o="xdg-open"
+zinit light zsh-users/zsh-completions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zinit light Aloxaf/fzf-tab
+### End of Zinit's installer chunk
 
-
-# go
-export PATH=/usr/local/go/bin:$PATH
-export GO111MODULE=on
-
-# rust
-. $HOME/.cargo/env
-
-# z.lua
-export _ZL_ADD_ONCE=1
-export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json,go.mod"
-unalias 9
-unalias z # ~/.zfunc/z
-
-# bat
-export BAT_THEME=gruvbox-light
-export BAT_STYLE=numbers,header-filename,header-filesize
-
-# fzf
+eval "$(zoxide init zsh)"
 source <(fzf --zsh)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.fzf-git.sh ] && source ~/.fzf-git.sh
 
-# k8s
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# plan9port
-export PLAN9=/usr/local/plan9
-export PATH=$PATH:$PLAN9/bin
-
-# functions
-fpath=(~/.zfunc $fpath)
-autoload -Uz $fpath[1]/*(.:t)
-proxy on
+### Last
+eval "$(starship init zsh)"
