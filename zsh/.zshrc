@@ -1,40 +1,69 @@
-path=("$HOME/.local/bin" "/opt/homebrew/bin" "/opt/homebrew/opt/coreutils/libexec/gnubin" $path)
+path=($HOME/.local/bin /usr/local/bin /usr/local/opt/coreutils/libexec/gnubin $path)
 HOMEBREW_NO_ANALYTICS=1
+fpath=(~/.zfunc $fpath)
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
+alias make=gmake
+alias geany="/Applications/Geany.app/Contents/MacOS/geany"
+alias k="kubectl"
 
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# llvm
+# export LDFLAGS="-L/usr/local/opt/llvm/lib"
+# export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+# ruby
+# export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.1.0/bin:$PATH"
+
+# go
+# export GOPATH="${HOME}/go"
+# export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+# export GO111MODULE=on
+
+# fzf
+source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# gcc
+alias CC="$(brew --prefix gcc)/bin/gcc-14"
+alias CXX="$(brew --prefix gcc)/bin/g++-14"
+alias gcc='gcc-14'
+alias g++='gcc++-14'
+
+# k8s
+[[ -f $HOME/fubectl.source ]] && source $HOME/fubectl.source
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# curl
+# export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# groff
+# export GROFF_TMAC_PATH=/usr/local/share/groff/current/tmac
 
 
-zinit light zsh-users/zsh-completions
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
+# >>> zi setup >>>
+source '/Users/hjl/.config/zi/setup.zsh'
+zi ice wait lucid blockf atpull'zi creinstall -q .'
+zi light zsh-users/zsh-completions
+
 autoload -Uz compinit && compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zinit light Aloxaf/fzf-tab
-### End of Zinit's installer chunk
+zicdreplay -q
+
+zi ice wait lucid has'fzf' atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
+zi light Aloxaf/fzf-tab
+
+zi ice wait'0c' lucid
+zi light z-shell/F-Sy-H
+
+zi ice wait'0c' lucid atload"!_zsh_autosuggest_start"
+zi light zsh-users/zsh-autosuggestions
+
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' menu no
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# <<< zi setup <<<
 
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
-
-### Last
+# Last
 eval "$(starship init zsh)"
